@@ -89,23 +89,17 @@ let users = [
 for (let user of users) {
     if (user.status == true) {
         document.write(`<h5>${user.name} has status ${user.status}</h5>`)
-    }
-    ;
-}
-;
+    };
+};
 // користувачів зі статусом false
 for (let user of users) {
     if (user.status == false) {
         document.write(`------<h5>${user.name} has status ${user.status}</h5>`)
-    }
-    ;
-}
-;
+    };
+};
 // - користувачів які старші за 30 років
 for (let user of users) {
     if (user.age > 30) {
         document.write(`<h5>${user.name} is ${user.age} old</h5>`)
-    }
-    ;
-}
-;
+    };
+};
