@@ -1,34 +1,38 @@
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
-for (let i=0; i<10; i++) {
-    document.write(`<div> той текст написано ${i+1} разів </div>`)
-};
+for (let i = 0; i < 10; i++) {
+    document.write(`<div> той текст написано ${i + 1} разів </div>`)
+}
+;
 // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
-for (let i=0; i<10; i++) {
+for (let i = 0; i < 10; i++) {
     document.write(`<div> індекс ${i} </div>`)
-};
+}
+;
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 let bimba = 0;
-while (bimba<20) {
-    document.write(`<h1> while виведено ${bimba+1} раз </h1>`);
+while (bimba < 20) {
+    document.write(`<h1> while виведено ${bimba + 1} раз </h1>`);
     bimba++;
 
 }
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
 let bomba = 0;
-while (bomba<20) {
+while (bomba < 20) {
     document.write(`<h1> індекс ${bomba}  </h1>`);
     bomba++;
 }
 // - Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
 // Масив:
-let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
-document.write (`<ul>`);
-for (let listitem of  listOfItems) {
-    document.write (`<li> ${listitem}</li>`);
-};
 
-document.write (`</ul>`);
+let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+document.write(`<ul>`);
+for (let listitem of listOfItems) {
+    document.write(`<li> ${listitem}</li>`);
+}
+;
+
+document.write(`</ul>`);
 
 // Використовуючи данні з масиву, за допомоги document.write та циклу
 // побудувати структуру по шаблону
@@ -56,5 +60,52 @@ let products = [
         image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
     },
 ];
-for (let product )
+document.write(`<div class="wrap">`)
+for (let product of products) {
+    document.write(`
+    <div class="product-card">
+    <h3 class="product-title">${product.title}. Prise - ${product.price}</h3>
+    <img src="${product.image}" alt="${product.title}" class="product-image">  
+    </div>
+`)
+}
+document.write(`</div>`)
 
+let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}
+];
+// - користувачів зі статусом true
+
+for (let user of users) {
+    if (user.status == true) {
+        document.write(`<h5>${user.name} has status ${user.status}</h5>`)
+    }
+    ;
+}
+;
+// користувачів зі статусом false
+for (let user of users) {
+    if (user.status == false) {
+        document.write(`------<h5>${user.name} has status ${user.status}</h5>`)
+    }
+    ;
+}
+;
+// - користувачів які старші за 30 років
+for (let user of users) {
+    if (user.age > 30) {
+        document.write(`<h5>${user.name} is ${user.age} old</h5>`)
+    }
+    ;
+}
+;
