@@ -66,8 +66,7 @@ function liWriter(textLielement, x) {
     document.write(`<ul>`);
     for (let i = 0; i < x; i++) {
         document.write(`<li>${textLielement}</li>`)
-    }
-    ;
+    };
     document.write(`</ul>`);
 };
 liWriter(' a choice between two pills: red and blue', 10);
@@ -78,8 +77,7 @@ function arrwriter(arr) {
     document.write(`<ul>`);
     for (let arrElement of arr) {
         document.write(`<li>${arrElement}</li>`);
-    }
-    ;
+    };
     document.write(`</ul>`);
 };
 arrwriter(coursesTitleArray);
@@ -106,8 +104,7 @@ function userblockPrinter(usersArr) {
         document.write(`<div class="userblock">`);
         document.write(`<h3> ID: ${usersArrElement.id}, name: ${usersArrElement.name} age ${usersArrElement.age}</h3>`);
         document.write(`</div>`);
-    }
-    ;
+    };
 };
 
 userblockPrinter(users);
@@ -131,7 +128,7 @@ newArr[8] = Math.floor(Math.random()*1000);
 newArr[9] = Math.floor(Math.random()*1000);
 // let arrnums = [104, 5661, 1881, -909, 82919, 0, -100, 19191, -99];
 
-// debugger
+
 function numberarrFinder(arrofnumbers) {
     let littlenumber = arrofnumbers[0];
     for (let i = 0; i < arrofnumbers.length; i++) {
@@ -160,13 +157,6 @@ console.log(addNums(newArr));
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
 
-// function swap (arr,index1,index2) {
-//     let newarr = [];
-//     for (let i = 0; i < arr.length; i++) {
-//
-//     }
-// }
-// debugger
 function swap (arr,index1,index2) {
     let newarr = [];
     for (let i = 0; i < arr.length; i++) {
