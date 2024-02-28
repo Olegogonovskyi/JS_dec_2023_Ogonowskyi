@@ -81,6 +81,12 @@ function arrwriter(arr) {
     document.write(`</ul>`);
 };
 arrwriter(coursesTitleArray);
+// або, якщо я неправильно зрозумів)
+
+function arrwriter2 (...x) {
+    console.log(x);
+}
+console.log(arrwriter2(356363536, 'djhd', false, true, NaN));
 
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ.
 // Для кожного об'єкту окремий блок.
