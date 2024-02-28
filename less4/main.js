@@ -38,7 +38,7 @@ function arraysPost(arr) {
         console.log(arrElement)
     }
 };
-console.log(arraysPost(coursesTitleArray));
+arraysPost(coursesTitleArray);
 
 // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
 
@@ -86,7 +86,7 @@ arrwriter(coursesTitleArray);
 function arrwriter2 (...x) {
     console.log(x);
 }
-console.log(arrwriter2(356363536, 'djhd', false, true, NaN));
+arrwriter2(356363536, 'djhd', false, true, NaN);
 
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ.
 // Для кожного об'єкту окремий блок.
