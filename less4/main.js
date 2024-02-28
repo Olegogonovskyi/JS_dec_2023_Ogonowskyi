@@ -102,8 +102,11 @@ let users = [
 function userblockPrinter(usersArr) {
     for (const usersArrElement of usersArr) {
         document.write(`<div class="userblock">`);
-        document.write(`<h3> ID: ${usersArrElement.id}, name: ${usersArrElement.name} age ${usersArrElement.age}</h3>`);
+        for (let usersArrElementKey in usersArrElement) {
+            document.write(`<h3> ${usersArrElementKey}: ${usersArrElement[usersArrElementKey]}</h3>`);
+            };
         document.write(`</div>`);
+
     };
 };
 
