@@ -148,3 +148,64 @@ let exchange = (sumUAH,currencyValues,exchangeCurrency) => {
     return sumres
 }
 console.log(exchange(10000, actualexchange,'EUR'))
+
+// - Даны два целых числа A и В .
+//     Выведите все числа от A до B включительно, в порядке возрастания,
+//     если A < B, или в порядке убывания в противном случае.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Чорновик
+let prog1 = (a, b) => {
+    let newarr = [];
+    let indexarr=0;
+
+    if (a<b) {
+        for (let i = a; i <= b; i++) {
+            newarr[indexarr] = i;
+            indexarr++;
+        };
+    } else if (a>b) {
+        for (let i = a; i>=b; i--) {
+            newarr[indexarr] = i;
+            indexarr++;
+        }
+    };
+    return newarr
+};
+console.log(prog1(10,2));
+console.log(prog1(34,56));
