@@ -57,4 +57,134 @@ const sortNums = (numbers, direction) => {
 };
 console.log(sortNums(nums, 'descending'))
 
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+
+// -- відсортувати його за спаданням за monthDuration
+const sortbyMonth = (arr) => {
+    return arr.sort((courseone, coursetwo) => coursetwo.monthDuration-courseone.monthDuration );
+
+}
+console.log(sortbyMonth(coursesAndDurationArray));
+
+// відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+
+const filterbyMounth = (arr) => {
+    return arr.filter(value => value.monthDuration>5);
+}
+console.log(filterbyMounth(coursesAndDurationArray));
+
+// -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
+const addIdrocourses = (arr) => {
+    return arr.map((value, index) => {
+        return {id: index+1, title: value.title, monthDuration:value.monthDuration }
+    });
+};
+console.log(addIdrocourses(coursesAndDurationArray));
+
+// описати колоду карт (від 6 до туза без джокерів)
+// - знайти піковий туз
+// - всі шістки
+// - всі червоні карти
+// - всі буби
+// - всі трефи від 9 та більше
+//
+// {
+//     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
+//         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
+//     color:'', // 'red','black'
+// }
+
+let cards = [
+    {cardSuit: 'spade', value: '6', color: 'black'},
+    {cardSuit: 'spade', value: '7', color: 'black'},
+    {cardSuit: 'spade', value: '9', color: 'black'},
+    {cardSuit: 'spade', value: '10', color: 'black'},
+    {cardSuit: 'spade', value: 'jack', color: 'black'},
+    {cardSuit: 'spade', value: 'queen', color: 'black'},
+    {cardSuit: 'spade', value: 'king', color: 'black'},
+    {cardSuit: 'spade', value: 'ace', color: 'black'},
+    {cardSuit: 'diamond', value: '6', color: 'red'},
+    {cardSuit: 'diamond', value: '7', color: 'red'},
+    {cardSuit: 'diamond', value: '8', color: 'red'},
+    {cardSuit: 'diamond', value: '9', color: 'red'},
+    {cardSuit: 'diamond', value: '10', color: 'red'},
+    {cardSuit: 'diamond', value: 'jack', color: 'red'},
+    {cardSuit: 'diamond', value: 'queen', color: 'red'},
+    {cardSuit: 'diamond', value: 'king', color: 'red'},
+    {cardSuit: 'diamond', value: 'ace', color: 'red'},
+    {cardSuit: 'heart', value: '6', color: 'red'},
+    {cardSuit: 'heart', value: '7', color: 'red'},
+    {cardSuit: 'heart', value: '8', color: 'red'},
+    {cardSuit: 'heart', value: '9', color: 'red'},
+    {cardSuit: 'heart', value: '10', color: 'red'},
+    {cardSuit: 'heart', value: 'jack', color: 'red'},
+    {cardSuit: 'heart', value: 'queen', color: 'red'},
+    {cardSuit: 'heart', value: 'king', color: 'red'},
+    {cardSuit: 'heart', value: 'ace', color: 'red'},
+    {cardSuit: 'club', value: '6', color: 'black'},
+    {cardSuit: 'club', value: '7', color: 'black'},
+    {cardSuit: 'club', value: '8', color: 'black'},
+    {cardSuit: 'club', value: '9', color: 'black'},
+    {cardSuit: 'club', value: '10', color: 'black'},
+    {cardSuit: 'club', value: 'jack', color: 'black'},
+    {cardSuit: 'club', value: 'queen', color: 'black'},
+    {cardSuit: 'club', value: 'king', color: 'black'},
+    {cardSuit: 'club', value: 'ace', color: 'black'},
+
+];
+
+// - знайти піковий туз
+
+let finderace = cards.find((card) => {
+    return card.value === 'ace' && card.cardSuit === 'spade';
+} );
+console.log(finderace);
+// - всі шістки
+
+let allsix = cards.filter(card => card.value === '6');
+console.log(allsix);
+
+// всі червоні карти
+
+let allred = cards.filter(card => card.color === 'red');
+console.log(allred);
+
+// всі буби
+let alldiamond =  cards.filter(cards => cards.cardSuit === 'diamond');
+console.log(alldiamond);
+
+// - всі трефи від 9 та більше
+
+let allclubs = cards.filter(card => card.cardSuit === 'club'&& card.value>'8');
+console.log(allclubs);
+
+// Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+// {
+//     spades:[],
+//         diamonds:[],
+//     hearts:[],
+//     clubs:[]
+// }
+let jokerFocus = cards.reduce((filteredcards, card) => {
+if (card.cardSuit === 'spade') {
+    filteredcards.spades.push(card)
+} else if (card.cardSuit === 'diamond') {
+    filteredcards.diamonds.push(card)
+} else if (card.cardSuit === 'heart') {
+    filteredcards.hearts.push(card);
+} else {
+    filteredcards.clubs.push(card);
+}
+return filteredcards;
+}, { spades:[], diamonds:[],  hearts:[], clubs:[]});
+console.log(jokerFocus);
+
+
 
