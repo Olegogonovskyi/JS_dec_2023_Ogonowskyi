@@ -81,12 +81,9 @@ const filterbyMounth = (arr) => {
 console.log(filterbyMounth(coursesAndDurationArray));
 
 // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
-const addIdrocourses = (arr) => {
-    return arr.map((value, index) => {
-        return {id: index+1, title: value.title, monthDuration:value.monthDuration }
-    });
-};
-console.log(addIdrocourses(coursesAndDurationArray));
+const addIdrocourses = coursesAndDurationArray.map((value, index) => ({id: index+1, title: value.title, monthDuration:value.monthDuration }));
+console.log(addIdrocourses);
+console.log(coursesAndDurationArray);
 
 // описати колоду карт (від 6 до туза без джокерів)
 // - знайти піковий туз
@@ -142,9 +139,7 @@ let cards = [
 
 // - знайти піковий туз
 
-let finderace = cards.find(({value, cardSuit}) => {
-    return value === 'ace' && cardSuit === 'spade';
-} );
+let finderace = cards.find(({value, cardSuit}) => value === 'ace' && cardSuit === 'spade');
 console.log(finderace);
 // - всі шістки
 
@@ -183,7 +178,7 @@ if (card.cardSuit === 'spade') {
     filteredcards.clubs.push(card);
 }
 return filteredcards;
-}, { spades:[], diamonds:[],  hearts:[], clubs:[]});
+}, {spades:[], diamonds:[],  hearts:[], clubs:[]});
 console.log(jokerFocus);
 
 
