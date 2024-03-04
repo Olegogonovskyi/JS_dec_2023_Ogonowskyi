@@ -76,7 +76,7 @@ console.log(sortbyMonth(coursesAndDurationArray));
 // відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
 
 const filterbyMounth = (arr) => {
-    return arr.filter(value => value.monthDuration>5);
+    return arr.filter(({monthDuration}) => monthDuration>5);
 }
 console.log(filterbyMounth(coursesAndDurationArray));
 
@@ -142,27 +142,27 @@ let cards = [
 
 // - знайти піковий туз
 
-let finderace = cards.find((card) => {
-    return card.value === 'ace' && card.cardSuit === 'spade';
+let finderace = cards.find(({value, cardSuit}) => {
+    return value === 'ace' && cardSuit === 'spade';
 } );
 console.log(finderace);
 // - всі шістки
 
-let allsix = cards.filter(card => card.value === '6');
+let allsix = cards.filter(({value}) => value === '6');
 console.log(allsix);
 
 // всі червоні карти
 
-let allred = cards.filter(card => card.color === 'red');
+let allred = cards.filter(({color}) => color === 'red');
 console.log(allred);
 
 // всі буби
-let alldiamond =  cards.filter(cards => cards.cardSuit === 'diamond');
+let alldiamond =  cards.filter(({cardSuit}) => cardSuit === 'diamond');
 console.log(alldiamond);
 
 // - всі трефи від 9 та більше
 
-let allclubs = cards.filter(card => card.cardSuit === 'club'&& card.value>'8');
+let allclubs = cards.filter(({cardSuit, value}) => cardSuit === 'club'&& value>'8');
 console.log(allclubs);
 
 // Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
