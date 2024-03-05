@@ -157,7 +157,7 @@ console.log(alldiamond);
 
 // - всі трефи від 9 та більше
 
-let allclubs = cards.filter(({cardSuit, value}) => cardSuit === 'club'&& value>'8');
+let allclubs = cards.filter(({cardSuit, value}) => value === '10' && cardSuit === 'club' || cardSuit === 'club'&& value>'8');
 console.log(allclubs);
 
 // Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
@@ -181,5 +181,81 @@ return filteredcards;
 }, {spades:[], diamonds:[],  hearts:[], clubs:[]});
 console.log(jokerFocus);
 
+// взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
+// --написати пошук всіх об'єктів, в який в modules є sass
 
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+let filterSaas = coursesArray.filter(({modules}) => modules.includes('sass'));
+console.log(filterSaas);
 
+// --написати пошук всіх об'єктів, в який в modules є docker
+let filterDocker = coursesArray.filter(({modules}) => modules.includes('docker'));
+console.log(filterDocker);
