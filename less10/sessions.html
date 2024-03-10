@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ogonowskyi_hw</title>
+</head>
+<body>
+
+<script>
+    let dateSesions = JSON.parse(localStorage.getItem('dateSesions'));
+    for (let i = 0; i < dateSesions.length; i++) {
+        const dateSesion = dateSesions[i];
+        let sesiondateBlock = document.createElement('h2');
+        sesiondateBlock.innerText = dateSesions[i];
+        document.body.appendChild(sesiondateBlock);
+    }
+
+</script>
+</body>
+</html>
