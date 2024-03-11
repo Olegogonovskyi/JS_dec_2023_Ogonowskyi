@@ -48,7 +48,7 @@ class Client {
 let clasArr;
 clasArr = [
     new Client(2627, 'lesko', 'Re', 'psd@ukr.net', 911, ['water', 'ice - cream', 'bread', 'coffee']),
-    new Client(263227, 'leska', 'Lolip', 'psd@ukr.net', 112, ['milk', 'coffee']),
+    new Client(263227, 'leska', 'Lolip', 'p89sd@ukr.net', 112, ['milk', 'coffee']),
     new Client(27, 'Marta', 'Masla', 'wwpsd@ukr.net', 113, ['bread']),
     new Client(7, 'Bianka', 'Kasla', 'psdye7@ukr.net', 121, ['coffee', 'beer', 'candys', 'kovbasa', 'mayonez', 'wiski']),
     new Client(217, 'Piter', 'Faska', 'ousd@ukr.net', 931, ['beer', 'hotdog']),
