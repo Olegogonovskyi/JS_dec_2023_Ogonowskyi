@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<h1 class="lastTask"></h1>
+
 <script>
     let dateSesions = JSON.parse(localStorage.getItem('dateSesions'));
     for (let i = 0; i < dateSesions.length; i++) {
@@ -16,7 +18,39 @@
         let sesiondateBlock = document.createElement('h2');
         sesiondateBlock.innerText = dateSesions[i];
         document.body.appendChild(sesiondateBlock);
+    };
+
+
+    // *** (подібне було вище, але...будьте уважні в другій частині)
+    // створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    //     зміна ціни відбувається тільки на перезавантаження,
+    //     які відбулись пізніше ніж 10 секунд після попереднього.
+    //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд -
+    // нічого не відбувається
+
+    let actualsumm =  JSON.parse(localStorage.getItem('summ')) || 100;
+    localStorage.setItem('summ', JSON.stringify(actualsumm))
+    let actualsummBlock = document.getElementsByClassName('lastTask')[0];
+    actualsummBlock.innerText = `${actualsumm} UAN`;
+
+    let nowone = new Date();
+    let timeinMilisec = nowone.getTime();
+    let now = JSON.parse(localStorage.getItem('date')) || timeinMilisec;
+    localStorage.setItem('date', JSON.stringify(now))
+
+    document.onreadystatechange = function () {
+        let nowtwo = new Date();
+        let timeinMilisectwo = nowtwo.getTime();
+        if (document.readyState === 'interactive' && timeinMilisectwo > (now+10000)) {
+            actualsumm += 10;
+            localStorage.setItem('date', JSON.stringify(timeinMilisectwo));
+            localStorage.setItem('summ', JSON.stringify(actualsumm));
+            actualsummBlock.innerText = `${actualsumm} UAN`;
+        }
     }
+
+
 
 </script>
 </body>

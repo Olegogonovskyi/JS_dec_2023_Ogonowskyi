@@ -60,14 +60,22 @@ let step = JSON.parse(localStorage.getItem('stepnumber')) || 0;
 console.log(step)
 
 let actualnumber = step*10;
-if (actualnumber < newarr.length && actualnumber >= 0) {
-    for (i = actualnumber; i < actualnumber + 10; i++) {
-        let listelement = document.createElement('h3')
-        listelement.innerText = newarr[i];
-        listblock.appendChild(listelement)
-    };
-}
 
+let stepArr = newarr.splice(actualnumber, 10);
+stepArr.forEach(value =>  {
+    let listelement = document.createElement('h3')
+        listelement.innerText = value;
+        listblock.appendChild(listelement)
+});
+// -------------------------------------------------------| not actual |------------------------------------------------------------
+// if (actualnumber < newarr.length && actualnumber >= 0) {
+//     for (i = actualnumber; i < actualnumber + 10; i++) {
+//         let listelement = document.createElement('h3')
+//         listelement.innerText = newarr[i];
+//         listblock.appendChild(listelement)
+//     };
+// }
+// -------------------------------------------------------| not actual |------------------------------------------------------------
 
 let nextButton = document.getElementsByClassName('nextbutton')[0];
 let previosbutton = document.getElementsByClassName('previosbutton')[0];
@@ -85,6 +93,74 @@ previosbutton.onclick = function () {
     step>=0 ? localStorage.setItem('stepnumber', JSON.stringify(step)) : step = 0;
 
    };
+
+// - Створити довільний елемент з id = text та створити кнопку.Використовуючи
+// JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
+
+let shutYourmouthe = document.getElementById('text');
+let shutButton = document.getElementById('shutbutton');
+shutButton.onclick = function () {
+    shutYourmouthe.classList.add('shut')
+};
+
+// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+//     При натисканні на кнопку зчитати інформацію з інпуту та перевірити
+// вік чи меньше він ніж 18, та повідомити про це користувача
+
+let secInp = document.forms.secondForm;
+// let secondinpButtob = document.getElementsByClassName('secondinpButtob')[0];
+
+secInp.onsubmit = function (e) {
+    e.preventDefault();
+    this.inputAge.value<18 ? alert('друже тобі краще сюди: https://www.kiddle.co/') : alert('Ok')
+};
+
+// *** Створити 3 інпута та кнопку. Один визначає кількість рядків,
+// другий - кількість ячеєк, третій вмиіст ячеєк.
+//     При натисканні кнопки, вся ця інформація зчитується і
+//     rowNumформується табличка, з відповідним вмістом.
+// (Додатковачастина для завдання)
+
+
+
+
+let rowgapblock = document.getElementsByClassName('rowgapblock')[0];
+rowgapblock.style.display = 'flex';
+rowgapblock.style.flexDirection = 'column';
+rowgapblock.style.rowGap = '10px';
+
+let threeForm = document.forms.threeForm;
+threeForm.onsubmit = function (e) {
+    e.preventDefault();
+
+    let gapNumber = parseFloat(this.gapNumber.value);
+    let rowNumber = parseFloat(this.rowNumber.value);
+    for (let i = 0; i < rowNumber; i++) {
+        let rowBlock = document.createElement('div');
+        rowBlock.classList.add('rowBlock');
+        rowBlock.style.display = 'flex';
+        rowgapblock.appendChild(rowBlock);
+
+        for (let a = 0; a < gapNumber; a++) {
+            let singleEll = document.createElement('div');
+            singleEll.classList.add('singleEll');
+            singleEll.innerText = this.textonTablet.value;
+            singleEll.style.height = '20px';
+            singleEll.style.width = '50px';
+            singleEll.style.background = 'cornflowerblue'
+            rowBlock.appendChild(singleEll);
+        };
+    };
+};
+
+// *** (подібне було вище, але...будьте уважні в другій частині)
+// створити сторінку з довільним блоком, в середині якого є значення "100грн"
+// при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+//     зміна ціни відбувається тільки на перезавантаження,
+//     які відбулись пізніше ніж 10 секунд після попереднього.
+//     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд -
+// нічого не відбувається
+
 
 
 

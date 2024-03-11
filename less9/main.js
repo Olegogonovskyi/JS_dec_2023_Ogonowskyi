@@ -220,7 +220,7 @@ let coursesArray = [
 
 let modulesWrap = document.createElement('div');
 modulesWrap.classList.add('modulesWrap');
-modulesWrap.style.display = 'flex'
+modulesWrap.style.display = 'flex';
 modulesWrap.style.flexDirection = 'column';
 modulesWrap.style.justifyContent = 'center';
 modulesWrap.style.alignItems = 'center'
