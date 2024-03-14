@@ -12,6 +12,9 @@ divblock.style.fontSize = '20px';
 divblock.innerText = 'Головне, не вір всяку нісенітницю щодо фатуму. Ти господар свого життя ...'
 document.body.appendChild(divblock);
 
+let clonedivblock = divblock.cloneNode(true);
+document.body.appendChild(clonedivblock);
+
 // - Є масив:
 let arrForul = ['Main','Products','About us','Contacts']
 // Зробити ul в середині якої будуть лежати елементи масиву (кожен в своєму li)

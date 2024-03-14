@@ -39,6 +39,7 @@ let numbers = [10,8,-7,55,987,-1011,0,1050,0]
 let strnums = numbers.map(value => String(value));
 console.log(strnums);
 
+
 // створити функцію sortNums(direction), яка прймає масив чисел,
 //     та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
 let nums = [11,21,3];

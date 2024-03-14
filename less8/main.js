@@ -1,7 +1,7 @@
 // - Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
 
-function User (id, name, surname , email, phone) {
+function User(id, name, surname, email, phone) {
     this.id = id;
     this.name = name;
     this.surname = surname;
@@ -23,11 +23,11 @@ arr[arr.length] = new User(954, 'Lesya', 'Perd', 'ol23t@gmail.com', +38063031143
 console.log(arr);
 
 // - Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
-let newUserarr = arr.filter(({id}) => id%2 === 0);
+let newUserarr = arr.filter(({id}) => id % 2 === 0);
 console.log(newUserarr);
 
 // - Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
-let sortUserarr = arr.sort((a, b) => a.id-b.id);
+let sortUserarr = arr.sort((a, b) => a.id - b.id);
 console.log(sortUserarr);
 
 // - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
@@ -61,7 +61,7 @@ clasArr = [
 
 console.log(clasArr);
 
-let sortbyOrder = clasArr.sort((a, b) => a.order.length-b.order.length);
+let sortbyOrder = clasArr.sort((a, b) => a.order.length - b.order.length);
 console.log(sortbyOrder);
 
 // - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
@@ -71,18 +71,19 @@ console.log(sortbyOrder);
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
-function Constructor (model, brand, year, maxspeed, engine) {
-this.model = model;
-this.brand = brand;
-this.year = year;
-this.maxspeed = maxspeed;
-this.engine = engine;
-this.drive = () => console.log(`їдемо зі швидкістю ${maxspeed} км на годину`);
-this.info = () => console.log(`model - ${this.model}; brand - ${this.brand}; year - ${this.year}; maxspeed - ${this.maxspeed}; engine - ${this.engine};`);
-this.increaseMaxSpeed = (newSpeed) => this.maxspeed = newSpeed;
-this.changeYear = (newValue) => this.year = newValue;
-this.addDriver = (driver) => this.drivers = driver;
+function Constructor(model, brand, year, maxspeed, engine) {
+    this.model = model;
+    this.brand = brand;
+    this.year = year;
+    this.maxspeed = maxspeed;
+    this.engine = engine;
+    this.drive = () => console.log(`їдемо зі швидкістю ${maxspeed} км на годину`);
+    this.info = () => console.log(`model - ${this.model}; brand - ${this.brand}; year - ${this.year}; maxspeed - ${this.maxspeed}; engine - ${this.engine};`);
+    this.increaseMaxSpeed = (newSpeed) => this.maxspeed = newSpeed;
+    this.changeYear = (newValue) => this.year = newValue;
+    this.addDriver = (driver) => this.drivers = driver;
 }
+
 let carone = new Constructor('Tank', 'Panzer', 1939, 60, 1.0);
 carone.drive();
 carone.info();
@@ -101,13 +102,14 @@ console.log(carone.drivers);
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
 class Constructorclass {
-        constructor(model, brand, year, maxspeed, engine) {
+    constructor(model, brand, year, maxspeed, engine) {
         this.model = model;
         this.brand = brand;
         this.year = year;
         this.maxspeed = maxspeed;
         this.engine = engine;
     }
+
     drive = () => console.log(`їдемо зі швидкістю ${this.maxspeed} на годину`);
     info = () => console.log(`model - ${this.model}; brand - ${this.brand}; year - ${this.year}; maxspeed - ${this.maxspeed}; engine - ${this.engine};`)
     increaseMaxSpeed = (newSpeed) => this.maxspeed = newSpeed;
@@ -139,7 +141,7 @@ class Cinderella {
 };
 
 let chicks = [
-    new Cinderella('Sasha Grey',36, 35),
+    new Cinderella('Sasha Grey', 36, 35),
     new Cinderella('Cicciolina', 63, 42),
     new Cinderella('Tori Black', 36, 39),
     new Cinderella('Sunny Leone', 43, 38),
@@ -153,7 +155,7 @@ let chicks = [
 console.log(chicks);
 
 class Prince {
-        constructor(name, age, shooes) {
+    constructor(name, age, shooes) {
         this.name = name;
         this.age = age;
         this.shooes = shooes;
@@ -166,6 +168,7 @@ for (const chick of chicks) {
         console.log(chick)
     }
 
-};
-let lovePair = chicks.find(({leg}) =>leg === prince.shooes);
+}
+;
+let lovePair = chicks.find(({leg}) => leg === prince.shooes);
 console.log(lovePair);
