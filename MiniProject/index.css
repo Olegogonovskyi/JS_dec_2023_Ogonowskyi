@@ -22,13 +22,13 @@ body {
     width: 25vw;
     height: 8vh;
     border-radius: 10px;
-    background: rgba(127, 127, 127, 0.7);
+    background: rgba(170, 167, 204, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .userBlock a {
-    color: aliceblue;
+    color: white;
 
     text-decoration: none;
 }

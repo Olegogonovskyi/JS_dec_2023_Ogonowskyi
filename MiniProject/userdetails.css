@@ -4,7 +4,7 @@
 
 body {
     font-size: 20px;
-    color: aliceblue;
+    color: white;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -15,11 +15,11 @@ body {
 }
 button {
 
-    color: aliceblue;
+    color: white;
     font-size: 20px;
 }
 .mainUserInfowrap>* {
-    background: rgba(127, 127, 127, 0.7);
+    background: rgba(170, 167, 204, 0.7);
     border-radius: 10px;
 }
 .titlesWrap {
@@ -36,7 +36,7 @@ button {
 .titlesWrap a {
     text-decoration: none;
     color: aliceblue;
-    background: rgba(127, 127, 127, 0.7);
+    background: rgba(170, 167, 204, 0.7);
     border-radius: 10px;
 
 }
