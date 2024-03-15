@@ -1,0 +1,36 @@
+/*user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє,
+ на 90% ширини сторінки, по центру.*/
+/*блоки з короткою іфною про post - в ряд по 5 .*/
+
+body {
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url("town.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.titlesWrap {
+    text-align: center;
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+    grid-gap: 5vh;
+
+
+}
+
+.titlesWrap a {
+    text-decoration: none;
+    color: aliceblue;
+    background: rgba(127, 127, 127, 0.7);
+    border-radius: 10px;
+
+}
+.mainUserInfowrap {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

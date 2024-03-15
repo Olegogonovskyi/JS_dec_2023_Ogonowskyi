@@ -1,0 +1,34 @@
+body {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+
+    background-image: url("scale_1200.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.usersWrap {
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    grid-gap: 10vh;
+
+
+}
+.userBlock {
+    width: 25vw;
+    height: 8vh;
+    border-radius: 10px;
+    background: rgba(127, 127, 127, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userBlock a {
+    color: aliceblue;
+
+    text-decoration: none;
+}
