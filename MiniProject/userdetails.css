@@ -4,6 +4,7 @@
 
 body {
     font-size: 20px;
+    color: aliceblue;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -12,7 +13,17 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+button {
+
+    color: aliceblue;
+    font-size: 20px;
+}
+.mainUserInfowrap>* {
+    background: rgba(127, 127, 127, 0.7);
+    border-radius: 10px;
+}
 .titlesWrap {
+    background: none;
     text-align: center;
     margin-top: 10vh;
     display: grid;

@@ -1,6 +1,10 @@
 let url = new URL(location.href);
 let postId = url.searchParams.get('postId');
 
+let mainWrap = document.createElement("div");
+mainWrap.classList.add('mainWrap');
+document.body.appendChild(mainWrap)
+
 let post = fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
     .then(post => post.json());
 
@@ -24,11 +28,11 @@ Promise.all([post, comments])
         commentsblock.classList.add('commentsblock');
 
         mainPostblock.append(mainPostinfo, postbody);
-        document.body.append(mainPostblock, commentsblock)
+        mainWrap.append(mainPostblock, commentsblock)
 
         for (let comment of comments) {
             let commenttext = document.createElement('p');
-            commenttext.innerText = `${comment.email} - ${comment.name}: ${comment.body}`
+            commenttext.innerHTML = `<span>${comment.email} - ${comment.name}</span>:<br> ${comment.body}`
 
             commentsblock.appendChild(commenttext)
         }

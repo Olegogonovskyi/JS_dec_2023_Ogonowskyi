@@ -21,7 +21,7 @@ in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; loca
 
 let userPostbutton = document.createElement('button')
 userPostbutton.classList.add('userPostbutton');
-userPostbutton.innerText = `post of current use`;
+userPostbutton.innerText = `post of current user`;
 
 let titlesWrap = document.createElement('div');
 titlesWrap.classList.add('titlesWrap')
