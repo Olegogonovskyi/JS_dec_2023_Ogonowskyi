@@ -27,7 +27,7 @@ button {
     text-align: center;
     margin-top: 10vh;
     display: grid;
-    grid-template-columns: 20vw 20vw;
+    grid-template-columns: repeat(5, 15vw);
     grid-gap: 5vh;
     a {
         text-decoration: none;
