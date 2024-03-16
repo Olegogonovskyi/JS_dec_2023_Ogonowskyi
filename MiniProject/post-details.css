@@ -26,14 +26,12 @@ body {
     display: grid;
     grid-template-columns: 15vw 15vw 15vw 15vw;
     grid-gap: 5vw;
-}
-
-.commentsblock p {
-    background: rgba(170, 167, 204, 0.7);
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.commentsblock span {
-    font-weight: bold;
+    p {
+        background: rgba(170, 167, 204, 0.7);
+        border-radius: 10px;
+        padding: 5px;
+    };
+    span {
+        font-weight: bold;
+    }
 }

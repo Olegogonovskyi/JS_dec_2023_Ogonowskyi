@@ -26,9 +26,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.userBlock a {
-    color: white;
+    a {
+        color: white;
 
-    text-decoration: none;
+        text-decoration: none;
+    }
 }

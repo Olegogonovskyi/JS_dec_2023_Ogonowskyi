@@ -8,7 +8,7 @@ firstForm.onsubmit = function (ev) {
     ev.preventDefault();
     let usersinputBlock = document.createElement('div');
     usersinputBlock.innerText = `Username: ${this.inputName.value} Userssurname: ${this.inputsurName.value}; Age: ${this.inputAge.value}`
-    document.body.appendChild(usersinputBlock)
+    firstForm.appendChild(usersinputBlock)
 
 };
 
@@ -16,15 +16,24 @@ firstForm.onsubmit = function (ev) {
 //     який при кожному перезавантажені сторінки буде додавати до неї +1
 
 let numblock = document.getElementsByClassName('numberBlock')[0];
-document.onreadystatechange = function () {
-    if (document.readyState === 'interactive') {
-        let savenumb = JSON.parse(localStorage.getItem('numbr')) || parseFloat(numblock.outerText);
-        savenumb += 1;
-        numblock.innerText = savenumb;
-        localStorage.setItem('numbr', JSON.stringify(savenumb));
-    }
-    ;
-};
+let savenumb = JSON.parse(localStorage.getItem('numbr')) || parseFloat(numblock.outerText);
+savenumb += 1;
+numblock.innerText = savenumb;
+localStorage.setItem('numbr', JSON.stringify(savenumb));
+
+// ------------------------------------------------ тут я шось перемудрував :)----------------------------
+// document.onreadystatechange = function () {
+//     if (document.readyState === 'interactive') {
+//         let savenumb = JSON.parse(localStorage.getItem('numbr')) || parseFloat(numblock.outerText);
+//         savenumb += 1;
+//         numblock.innerText = savenumb;
+//         localStorage.setItem('numbr', JSON.stringify(savenumb));
+//     }
+//     ;
+// };
+// ------------------------------------------------ тут я шось перемудрував ----------------------------
+
+
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
 //     в масив sessions зберігається інформація про дату та час відвідування сторінки.
 //     Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати
@@ -45,13 +54,6 @@ localStorage.setItem('dateSesions', JSON.stringify(dateSesions));
 // При натисканні prev виводяться попередні 10 об'єктів
 
 
-// let newarr = () => {
-//     let arr = [];
-//     for (let i = 0; i < 100; i++) {
-//         arr.push(i+1);
-//     };
-//     return arr
-// };
 let newarr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];
 console.log(newarr);
 
@@ -99,16 +101,14 @@ previosbutton.onclick = function () {
 
 let shutYourmouthe = document.getElementById('text');
 let shutButton = document.getElementById('shutbutton');
-shutButton.onclick = function () {
-    shutYourmouthe.classList.add('shut')
-};
+shutButton.onclick =  () => {shutYourmouthe.classList.add('shut')};
+
 
 // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
 //     При натисканні на кнопку зчитати інформацію з інпуту та перевірити
 // вік чи меньше він ніж 18, та повідомити про це користувача
 
 let secInp = document.forms.secondForm;
-// let secondinpButtob = document.getElementsByClassName('secondinpButtob')[0];
 
 secInp.onsubmit = function (e) {
     e.preventDefault();
@@ -161,7 +161,7 @@ threeForm.onsubmit = function (e) {
 //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд -
 // нічого не відбувається
 
-
+// Завдання виконане в документі sessions.html
 
 
 

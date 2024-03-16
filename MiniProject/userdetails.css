@@ -29,17 +29,15 @@ button {
     display: grid;
     grid-template-columns: 20vw 20vw;
     grid-gap: 5vh;
+    a {
+        text-decoration: none;
+        color: aliceblue;
+        background: rgba(170, 167, 204, 0.7);
+        border-radius: 10px;
 
-
+    }
 }
 
-.titlesWrap a {
-    text-decoration: none;
-    color: aliceblue;
-    background: rgba(170, 167, 204, 0.7);
-    border-radius: 10px;
-
-}
 .mainUserInfowrap {
     display: flex;
     flex-direction: column;
