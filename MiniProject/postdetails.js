@@ -40,3 +40,19 @@ Promise.all([post, comments])
 
     })
 
+// ----------------------------------------|audio Block|-------------------------------------------------------
+let audioBlock = document.createElement('div');
+audioBlock.classList.add('audioBlock');
+document.body.appendChild(audioBlock)
+
+let audioText = document.createElement('h5');
+audioText.innerText = 'Push to Play!';
+
+let audioblokimg = document.createElement('img');
+audioblokimg.src = 'Expert_Leadership.png'
+
+audioBlock.append(audioText, audioblokimg);
+let audiomuss = document.getElementsByTagName("audio")[0];
+
+audioBlock.onclick =  () => {audiomuss.play();}
+// ----------------------------------------|audio Block|-------------------------------------------------------

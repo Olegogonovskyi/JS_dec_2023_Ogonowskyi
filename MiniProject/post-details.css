@@ -37,3 +37,15 @@ body {
         font-weight: bold;
     }
 }
+
+.audioBlock {
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    width: 10vw;
+    height: 5vw;
+    position: fixed;
+    bottom: 8vh;
+    right: 3vw;
+    background: rgba(27, 26, 85, 0.7);
+}

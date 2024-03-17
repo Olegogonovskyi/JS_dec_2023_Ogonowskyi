@@ -6,6 +6,7 @@ body {
     font-family: 'MedievalSharp';
     display: flex;
     justify-content: center;
+    color: white;
 
     background-image: url("scale_1200.jpeg");
     background-size: cover;
@@ -23,6 +24,7 @@ body {
 
 }
 .userBlock {
+    background: rgba(27, 26, 85, 0.7);
     width: 25vw;
     height: 8vh;
     border-radius: 10px;
@@ -31,14 +33,22 @@ body {
     align-items: center;
     a {
         color: white;
-
         text-decoration: none;
     }
 }
-
-.bkglight {
-    background: rgba(27, 26, 85, 0.7);
-}
-.bkgdark {
+.userBlock:hover {
     background: rgba(27, 26, 85, 1);
 }
+
+.audioBlock {
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    width: 10vw;
+    height: 5vw;
+    position: fixed;
+    bottom: 8vh;
+    right: 3vw;
+    background: rgba(27, 26, 85, 0.7);
+}
+

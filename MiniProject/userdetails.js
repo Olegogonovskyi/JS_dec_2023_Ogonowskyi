@@ -1,6 +1,6 @@
 let url = new URL(location.href);
 
-let singleUser = JSON.parse(url.searchParams.get('user'))
+let singleUser = JSON.parse(url.searchParams.get('user'));
 
 let mainUserInfowrap = document.createElement('div');
 mainUserInfowrap.classList.add('mainUserInfowrap');
@@ -21,7 +21,7 @@ in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; loca
 
 let userPostbutton = document.createElement('button')
 userPostbutton.classList.add('userPostbutton');
-userPostbutton.innerText = `post of current user`;
+userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
 
 let titlesWrap = document.createElement('div');
 titlesWrap.classList.add('titlesWrap')
@@ -35,19 +35,28 @@ userPostbutton.onclick = function (e) {
         .then(posts => {
             for (let post of posts) {
                 let titlesNames = document.createElement('a');
-                titlesNames.classList.add('bkglight')
+                titlesNames.classList.add('astyle')
                 titlesNames.innerText = `${post.title}`;
                 titlesNames.href = `post-details.html?postId=${post.id}`
                 titlesWrap.appendChild(titlesNames);
-
-                titlesNames.addEventListener('mouseover', () => {
-                    titlesNames.classList.replace('bkglight', 'bkgdark');
-                });
-                titlesNames.addEventListener('mouseleave', () => {
-                    titlesNames.classList.replace('bkgdark', 'bkglight');
-                });
-
             }
 
         })
 }
+
+// ----------------------------------------|audio Block|-------------------------------------------------------
+let audioBlock = document.createElement('div');
+audioBlock.classList.add('audioBlock');
+document.body.appendChild(audioBlock)
+
+let audioText = document.createElement('h5');
+audioText.innerText = 'Push to Play!';
+
+let audioblokimg = document.createElement('img');
+audioblokimg.src = 'Expert_Leadership.png'
+
+audioBlock.append(audioText, audioblokimg);
+let audiomuss = document.getElementsByTagName("audio")[0];
+
+audioBlock.onclick =  () => {audiomuss.play();}
+// ----------------------------------------|audio Block|-------------------------------------------------------
