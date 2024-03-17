@@ -25,7 +25,7 @@ body {
 }
 .userBlock {
     background: rgba(27, 26, 85, 0.7);
-    width: 25vw;
+    width: 27vw;
     height: 8vh;
     border-radius: 10px;
         display: flex;
@@ -38,6 +38,12 @@ body {
 }
 .userBlock:hover {
     background: rgba(27, 26, 85, 1);
+    background-image: url("Swordsman_(adventure_map).gif");
+
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    background-origin: border-box, padding-box;
+    background-attachment: scroll;
 }
 
 .audioBlock {
