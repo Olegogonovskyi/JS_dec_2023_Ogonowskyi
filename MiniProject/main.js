@@ -6,17 +6,23 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => users.json())
     .then(users => {
 
-            for (let user of users) {
-                let userBlock = document.createElement('div');
-                userBlock.classList.add('userBlock');
-                usersWrap.appendChild(userBlock);
+        for (let user of users) {
+            let userBlock = document.createElement('div');
+            userBlock.classList.add('userBlock', 'bkglight');
+            usersWrap.appendChild(userBlock);
 
-                let mainInfouser = document.createElement('a');
-                userBlock.appendChild(mainInfouser);
-                mainInfouser.href = `user-details.html?user=${JSON.stringify(user)}`
-                mainInfouser.innerText = `Name: ${user.name} & id: ${user.id}`;
+            let mainInfouser = document.createElement('a');
+            userBlock.appendChild(mainInfouser);
+            mainInfouser.href = `user-details.html?user=${JSON.stringify(user)}`
+            mainInfouser.innerText = `Name: ${user.name} & id: ${user.id}`;
 
-            }
+            userBlock.addEventListener('mouseover', () => {
+                userBlock.classList.replace('bkglight', 'bkgdark');
+            });
+            userBlock.addEventListener('mouseleave', () => {
+                userBlock.classList.replace('bkgdark', 'bkglight');
+            });
 
         }
-    )
+    });
+

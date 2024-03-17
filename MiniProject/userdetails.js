@@ -12,7 +12,7 @@ usersMaininfo.innerText = `${singleUser.name}, id: ${singleUser.id} (username: $
 
 let userEmail = document.createElement('h4');
 userEmail.classList.add('userEmail');
-userEmail.innerText = `email: ${singleUser.email}`
+userEmail.innerText = `email: ${singleUser.email}`;
 
 let userAdresinfo = document.createElement('p');
 userAdresinfo.classList.add('userAdresinfo');
@@ -35,9 +35,17 @@ userPostbutton.onclick = function (e) {
         .then(posts => {
             for (let post of posts) {
                 let titlesNames = document.createElement('a');
+                titlesNames.classList.add('bkglight')
                 titlesNames.innerText = `${post.title}`;
                 titlesNames.href = `post-details.html?postId=${post.id}`
                 titlesWrap.appendChild(titlesNames);
+
+                titlesNames.addEventListener('mouseover', () => {
+                    titlesNames.classList.replace('bkglight', 'bkgdark');
+                });
+                titlesNames.addEventListener('mouseleave', () => {
+                    titlesNames.classList.replace('bkgdark', 'bkglight');
+                });
 
             }
 

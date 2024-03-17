@@ -1,5 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 body {
     font-size: 20px;
+    font-family: 'MedievalSharp';
     display: flex;
     justify-content: center;
 
@@ -22,8 +26,7 @@ body {
     width: 25vw;
     height: 8vh;
     border-radius: 10px;
-    background: rgba(170, 167, 204, 0.7);
-    display: flex;
+        display: flex;
     justify-content: center;
     align-items: center;
     a {
@@ -31,4 +34,11 @@ body {
 
         text-decoration: none;
     }
+}
+
+.bkglight {
+    background: rgba(27, 26, 85, 0.7);
+}
+.bkgdark {
+    background: rgba(27, 26, 85, 1);
 }
