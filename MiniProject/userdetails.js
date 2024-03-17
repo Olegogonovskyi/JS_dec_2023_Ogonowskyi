@@ -8,7 +8,7 @@ document.body.appendChild(mainUserInfowrap);
 
 let usersMaininfo = document.createElement('h3');
 usersMaininfo.classList.add('usersMaininfo');
-usersMaininfo.innerText = `${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
+usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
 
 let userEmail = document.createElement('h4');
 userEmail.classList.add('userEmail');
