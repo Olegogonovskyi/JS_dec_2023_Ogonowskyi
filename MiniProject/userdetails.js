@@ -1,32 +1,28 @@
+function createDom(text, classname, tag, appendPlace) {
+    this.element = document.createElement(`${tag}`);
+    this.element.classList.add(`${classname}`)
+    this.element.innerText = text;
+    appendPlace.appendChild(this.element)
+    return this.element;
+}
+
 let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
 
-let mainUserInfowrap = document.createElement('div');
-mainUserInfowrap.classList.add('mainUserInfowrap');
-document.body.appendChild(mainUserInfowrap);
+let mainUserInfowrap = new createDom('', 'mainUserInfowrap', 'div', document.body);
 
-let usersMaininfo = document.createElement('h3');
-usersMaininfo.classList.add('usersMaininfo');
+let usersMaininfo = new createDom('', 'usersMaininfo', 'h3', mainUserInfowrap);
 usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
 
-let userEmail = document.createElement('h4');
-userEmail.classList.add('userEmail');
-userEmail.innerText = `email: ${singleUser.email}`;
+let userEmail = new createDom(`emaill: ${singleUser.email}`, 'userEmail', 'h4', mainUserInfowrap);
 
-let userAdresinfo = document.createElement('p');
-userAdresinfo.classList.add('userAdresinfo');
-userAdresinfo.innerText = `street: ${singleUser.address.street}, suite: ${singleUser.address.suite} 
-in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`
+let userAdresinfo = new createDom(`street: ${singleUser.address.street}, suite: ${singleUser.address.suite} in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`, 'userAdresinfo', 'p', mainUserInfowrap);
 
-let userPostbutton = document.createElement('button')
-userPostbutton.classList.add('userPostbutton');
+let userPostbutton = new createDom('', 'userPostbutton', 'button', mainUserInfowrap);
 userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
 
-let titlesWrap = document.createElement('div');
-titlesWrap.classList.add('titlesWrap')
-
-mainUserInfowrap.append(usersMaininfo, userEmail, userAdresinfo, userPostbutton, titlesWrap);
+let titlesWrap = new createDom('', 'titlesWrap', 'div', mainUserInfowrap);
 
 userPostbutton.onclick = function (e) {
     e.preventDefault();
@@ -34,29 +30,26 @@ userPostbutton.onclick = function (e) {
         .then(posts => posts.json())
         .then(posts => {
             for (let post of posts) {
-                let titlesNames = document.createElement('a');
-                titlesNames.classList.add('astyle')
-                titlesNames.innerText = `${post.title}`;
+                let titlesNames = new createDom(`${post.title}`, 'astyle', 'a', titlesWrap);
                 titlesNames.href = `post-details.html?postId=${post.id}`
-                titlesWrap.appendChild(titlesNames);
+
             }
 
         })
 }
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = document.createElement('div');
-audioBlock.classList.add('audioBlock');
-document.body.appendChild(audioBlock)
+let audioBlock = new createDom('', 'audioBlock', 'div', document.body);
 
-let audioText = document.createElement('h5');
-audioText.innerText = 'Push to Play!';
+let audioText = new createDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
 let audioblokimg = document.createElement('img');
 audioblokimg.src = 'Expert_Leadership.png'
 
-audioBlock.append(audioText, audioblokimg);
+audioBlock.appendChild(audioblokimg);
+
 let audiomuss = document.getElementsByTagName("audio")[0];
 
-audioBlock.onclick =  () => {audiomuss.play();}
+audioBlock.onclick =  () => {audiomuss.play();
+}
 // ----------------------------------------|audio Block|-------------------------------------------------------
