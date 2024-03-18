@@ -1,3 +1,4 @@
+// ----------------------------------------|creator Dom|-------------------------------------------------------
 function createDom(text, classname, tag, appendPlace) {
     this.element = document.createElement(`${tag}`);
     this.element.classList.add(`${classname}`)
@@ -5,7 +6,7 @@ function createDom(text, classname, tag, appendPlace) {
     appendPlace.appendChild(this.element)
     return this.element;
 }
-
+// ----------------------------------------|creator Dom|-------------------------------------------------------
 let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
@@ -50,6 +51,5 @@ audioBlock.appendChild(audioblokimg);
 
 let audiomuss = document.getElementsByTagName("audio")[0];
 
-audioBlock.onclick =  () => {audiomuss.play();
-}
+audioBlock.onclick =  () => {audiomuss.play()}
 // ----------------------------------------|audio Block|-------------------------------------------------------
