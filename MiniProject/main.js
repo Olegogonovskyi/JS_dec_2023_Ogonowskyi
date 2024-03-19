@@ -1,13 +1,13 @@
 // ----------------------------------------|creator Dom|-------------------------------------------------------
-function createDom(text, classname, tag, appendPlace) {
-    this.element = document.createElement(`${tag}`);
-    this.element.classList.add(`${classname}`)
-    this.element.innerText = text;
-    appendPlace.appendChild(this.element)
-    return this.element;
+function СreateDom(text, classname, tag, appendPlace) {
+    element = document.createElement(`${tag}`);
+    element.classList.add(`${classname}`)
+    element.innerText = text;
+    appendPlace.appendChild(element)
+    return element;
 }
 // ----------------------------------------|creator Dom|-------------------------------------------------------
-let usersWrap = new createDom('', 'usersWrap', 'div', document.body);
+let usersWrap = СreateDom('', 'usersWrap', 'div', document.body);
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => users.json())
@@ -15,28 +15,26 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
         for (let user of users) {
 
-            let userBlock = new createDom('', 'userBlock', 'div', usersWrap)
+            let userBlock = СreateDom('', 'userBlock', 'div', usersWrap)
 
-            let mainInfouser = new createDom('', 'mainInfouser', 'a', userBlock)
+            let mainInfouser = СreateDom('', 'mainInfouser', 'a', userBlock)
             mainInfouser.href = `user-details.html?user=${JSON.stringify(user)}`
-            mainInfouser.innerHTML = `&#9876; Name: ${user.name} & id: ${user.id}`;
+            mainInfouser.innerHTML = `&#9760; Name: ${user.name} & id: ${user.id}`;
 
         }
     });
 
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = new createDom('', 'audioBlock', 'div', document.body);
+let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
 
-let audioText = new createDom('Push to Play!', 'audiotext', 'h5', audioBlock);
+let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
-let audioblokimg = document.createElement('img');
+let audioblokimg = СreateDom('', 'audioblokimg', 'img', audioBlock);
 audioblokimg.src = 'Expert_Leadership.png'
-
-audioBlock.appendChild(audioblokimg);
 
 let audiomuss = document.getElementsByTagName("audio")[0];
 
-audioBlock.onclick = () => {audiomuss.play()}
+audioBlock.onclick = () => {audiomuss.play();}
 // ----------------------------------------|audio Block|-------------------------------------------------------
 

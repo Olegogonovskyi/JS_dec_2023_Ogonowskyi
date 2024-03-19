@@ -1,16 +1,16 @@
 // ----------------------------------------|creator Dom|-------------------------------------------------------
-function createDom(text, classname, tag, appendPlace) {
-    this.element = document.createElement(`${tag}`);
-    this.element.classList.add(`${classname}`)
-    this.element.innerText = text;
-    appendPlace.appendChild(this.element)
-    return this.element;
+function СreateDom(text, classname, tag, appendPlace) {
+    element = document.createElement(`${tag}`);
+    element.classList.add(`${classname}`)
+    element.innerText = text;
+    appendPlace.appendChild(element)
+    return element;
 }
 // ----------------------------------------|creator Dom|-------------------------------------------------------
 let url = new URL(location.href);
 let postId = url.searchParams.get('postId');
 
-let mainWrap = new createDom('', 'mainWrap', 'div', document.body);
+let mainWrap = СreateDom('', 'mainWrap', 'div', document.body);
 
 let post = fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
     .then(post => post.json());
@@ -22,16 +22,16 @@ Promise.all([post, comments])
     .then(resolt => {
         let [post, comments] = resolt;
 
-        let mainPostblock = new createDom('', 'mainPostblock', 'div', mainWrap);
+        let mainPostblock = СreateDom('', 'mainPostblock', 'div', mainWrap);
 
-        let mainPostinfo = new createDom(`iD: ${post.id} - ${post.title}`, 'mainPostinfo', 'h3', mainPostblock);
+        let mainPostinfo = СreateDom(`iD: ${post.id} - ${post.title}`, 'mainPostinfo', 'h3', mainPostblock);
 
-        let postbody = new createDom(`${post.body}`, 'mainPostblock', 'p', mainPostblock);
+        let postbody = СreateDom(`${post.body}`, 'mainPostblock', 'p', mainPostblock);
 
-        let commentsblock = new createDom('', 'commentsblock', 'div', mainWrap);
+        let commentsblock = СreateDom('', 'commentsblock', 'div', mainWrap);
 
         for (let comment of comments) {
-            let commenttext = new createDom('', 'mainPostblock', 'p', commentsblock);
+            let commenttext = СreateDom('', 'mainPostblock', 'p', commentsblock);
             commenttext.innerHTML = `<span>${comment.email} - ${comment.name}</span>:<br> ${comment.body}`
 
         }
@@ -40,14 +40,12 @@ Promise.all([post, comments])
     })
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = new createDom('', 'audioBlock', 'div', document.body);
+let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
 
-let audioText = new createDom('Push to Play!', 'audiotext', 'h5', audioBlock);
+let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
-let audioblokimg = document.createElement('img');
+let audioblokimg = СreateDom('', 'audioblokimg', 'img', audioBlock);
 audioblokimg.src = 'Expert_Leadership.png'
-
-audioBlock.appendChild(audioblokimg);
 
 let audiomuss = document.getElementsByTagName("audio")[0];
 
