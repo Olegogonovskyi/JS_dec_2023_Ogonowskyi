@@ -7,7 +7,7 @@ function СreateDom(text, classname, tag, appendPlace) {
     return element;
 }
 // ----------------------------------------|creator Dom|-------------------------------------------------------
-let usersWrap = СreateDom('', 'usersWrap', 'div', document.body);
+let usersWrap = СreateDom(null, 'usersWrap', 'div', document.body);
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => users.json())
@@ -15,9 +15,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
         for (let user of users) {
 
-            let userBlock = СreateDom('', 'userBlock', 'div', usersWrap)
+            let userBlock = СreateDom(null, 'userBlock', 'div', usersWrap)
 
-            let mainInfouser = СreateDom('', 'mainInfouser', 'a', userBlock)
+            let mainInfouser = СreateDom(null, 'mainInfouser', 'a', userBlock)
             mainInfouser.href = `user-details.html?user=${JSON.stringify(user)}`
             mainInfouser.innerHTML = `&#9760; Name: ${user.name} & id: ${user.id}`;
 
@@ -26,11 +26,11 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
+let audioBlock = СreateDom(null, 'audioBlock', 'div', document.body);
 
 let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
-let audioblokimg = СreateDom('', 'audioblokimg', 'img', audioBlock);
+let audioblokimg = СreateDom(null, 'audioblokimg', 'img', audioBlock);
 audioblokimg.src = 'Expert_Leadership.png'
 
 let audiomuss = document.getElementsByTagName("audio")[0];

@@ -11,19 +11,19 @@ let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
 
-let mainUserInfowrap = СreateDom('', 'mainUserInfowrap', 'div', document.body);
+let mainUserInfowrap = СreateDom(null, 'mainUserInfowrap', 'div', document.body);
 
-let usersMaininfo = СreateDom('', 'usersMaininfo', 'h3', mainUserInfowrap);
+let usersMaininfo = СreateDom(null, 'usersMaininfo', 'h3', mainUserInfowrap);
 usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
 
 let userEmail = СreateDom(`emaill: ${singleUser.email}`, 'userEmail', 'h4', mainUserInfowrap);
 
 let userAdresinfo = СreateDom(`street: ${singleUser.address.street}, suite: ${singleUser.address.suite} in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`, 'userAdresinfo', 'p', mainUserInfowrap);
 
-let userPostbutton = СreateDom('', 'userPostbutton', 'button', mainUserInfowrap);
+let userPostbutton = СreateDom(null, 'userPostbutton', 'button', mainUserInfowrap);
 userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
 
-let titlesWrap = СreateDom('', 'titlesWrap', 'div', mainUserInfowrap);
+let titlesWrap = СreateDom(null, 'titlesWrap', 'div', mainUserInfowrap);
 
 userPostbutton.onclick = function (e) {
     e.preventDefault();
@@ -40,11 +40,11 @@ userPostbutton.onclick = function (e) {
 }
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
+let audioBlock = СreateDom(null, 'audioBlock', 'div', document.body);
 
 let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
-let audioblokimg = СreateDom('', 'audioblokimg', 'img', audioBlock);
+let audioblokimg = СreateDom(null, 'audioblokimg', 'img', audioBlock);
 audioblokimg.src = 'Expert_Leadership.png'
 
 let audiomuss = document.getElementsByTagName("audio")[0];

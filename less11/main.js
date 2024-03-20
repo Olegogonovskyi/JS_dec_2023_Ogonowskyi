@@ -14,18 +14,18 @@ fetch('https://dummyjson.com/carts')
 .then(cards => {
 
         for (const listcard of cards.carts) {
-        let wrapCards = СreateDom('div', 'wrapCards',  document.body, '');
-        let cardBlock = СreateDom('div', 'cardBlock',  wrapCards, '');
+        let wrapCards = СreateDom('div', 'wrapCards',  document.body, null);
+        let cardBlock = СreateDom('div', 'cardBlock',  wrapCards, null);
         let mainCardinfo = СreateDom('h3', 'mainCardinfo',  cardBlock,
             `user: ${listcard.userId}, id: ${listcard.id}, total ${listcard.total}, discountedTotal: ${listcard.discountedTotal},
             &#9755; you save ${listcard.total - listcard.discountedTotal} &#9754;, totalProducts: ${listcard.totalProducts}, totalQuantity: ${listcard.totalQuantity}`);
-        let productslist = СreateDom('ul', 'productslist',  cardBlock, '');
+        let productslist = СreateDom('ul', 'productslist',  cardBlock, null);
         for (const productslistElement of listcard.products) {
             let productli = СreateDom('li', 'productli',  productslist, `${productslistElement.title}: ${productslistElement.price} $`);
         }
     }
 
-    let newtask = СreateDom('hr', 'newtask',  document.body, '');
+    let newtask = СreateDom('hr', 'newtask',  document.body, null);
 });
 
 
@@ -37,10 +37,10 @@ fetch('https://dummyjson.com/recipes')
     .then(recepisall => {
 
         for (const listrecipe of recepisall.recipes) {
-            let recipeCards = СreateDom('div', 'recipeCards',  document.body, '');
-            let recipeBlock = СreateDom('div', 'recipeBlock',  recipeCards, '');
+            let recipeCards = СreateDom('div', 'recipeCards',  document.body, null);
+            let recipeBlock = СreateDom('div', 'recipeBlock',  recipeCards, null);
             let mainrecipeinfo = СreateDom('h2', 'mainrecipeinfo',  recipeBlock, `id: ${listrecipe.id}, name: ${listrecipe.name}`);
-            let ingredientslist = СreateDom('ul', 'ingredientslist',  recipeBlock, '');
+            let ingredientslist = СreateDom('ul', 'ingredientslist',  recipeBlock, null);
             for (let i = 0; i < listrecipe.ingredients.length; i++) {
                 let ingredientslistli = СreateDom('li', 'ingredientslistli',  ingredientslist, `${listrecipe.ingredients[i]}`);
             }

@@ -22,16 +22,16 @@ Promise.all([post, comments])
     .then(resolt => {
         let [post, comments] = resolt;
 
-        let mainPostblock = СreateDom('', 'mainPostblock', 'div', mainWrap);
+        let mainPostblock = СreateDom(null, 'mainPostblock', 'div', mainWrap);
 
         let mainPostinfo = СreateDom(`iD: ${post.id} - ${post.title}`, 'mainPostinfo', 'h3', mainPostblock);
 
         let postbody = СreateDom(`${post.body}`, 'mainPostblock', 'p', mainPostblock);
 
-        let commentsblock = СreateDom('', 'commentsblock', 'div', mainWrap);
+        let commentsblock = СreateDom(null, 'commentsblock', 'div', mainWrap);
 
         for (let comment of comments) {
-            let commenttext = СreateDom('', 'mainPostblock', 'p', commentsblock);
+            let commenttext = СreateDom(null, 'mainPostblock', 'p', commentsblock);
             commenttext.innerHTML = `<span>${comment.email} - ${comment.name}</span>:<br> ${comment.body}`
 
         }

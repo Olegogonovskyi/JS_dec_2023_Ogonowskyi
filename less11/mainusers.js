@@ -9,7 +9,7 @@ function СreateDom(tag, classname, appendPlace, text) {
 fetch('http://jsonplaceholder.typicode.com/users')
 .then(users => users.json())
 .then(users => {
-    let ulwrap = СreateDom('ul', 'ulwrap', document.body, '')
+    let ulwrap = СreateDom('ul', 'ulwrap', document.body, null)
     for (const user of users) {
         let infoUserli = СreateDom('li', 'infoUserli', ulwrap, `${user.id} - ${user.name} ` )
         let alink = СreateDom('a', 'alink', infoUserli, 'тицяй сюди')
