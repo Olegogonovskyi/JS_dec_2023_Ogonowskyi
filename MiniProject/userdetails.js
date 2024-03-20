@@ -1,32 +1,29 @@
+// ----------------------------------------|creator Dom|-------------------------------------------------------
+function СreateDom(text, classname, tag, appendPlace) {
+    element = document.createElement(`${tag}`);
+    element.classList.add(`${classname}`)
+    element.innerText = text;
+    appendPlace.appendChild(element)
+    return element;
+}
+// ----------------------------------------|creator Dom|-------------------------------------------------------
 let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
 
-let mainUserInfowrap = document.createElement('div');
-mainUserInfowrap.classList.add('mainUserInfowrap');
-document.body.appendChild(mainUserInfowrap);
+let mainUserInfowrap = СreateDom('', 'mainUserInfowrap', 'div', document.body);
 
-let usersMaininfo = document.createElement('h3');
-usersMaininfo.classList.add('usersMaininfo');
+let usersMaininfo = СreateDom('', 'usersMaininfo', 'h3', mainUserInfowrap);
 usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
 
-let userEmail = document.createElement('h4');
-userEmail.classList.add('userEmail');
-userEmail.innerText = `email: ${singleUser.email}`;
+let userEmail = СreateDom(`emaill: ${singleUser.email}`, 'userEmail', 'h4', mainUserInfowrap);
 
-let userAdresinfo = document.createElement('p');
-userAdresinfo.classList.add('userAdresinfo');
-userAdresinfo.innerText = `street: ${singleUser.address.street}, suite: ${singleUser.address.suite} 
-in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`
+let userAdresinfo = СreateDom(`street: ${singleUser.address.street}, suite: ${singleUser.address.suite} in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`, 'userAdresinfo', 'p', mainUserInfowrap);
 
-let userPostbutton = document.createElement('button')
-userPostbutton.classList.add('userPostbutton');
+let userPostbutton = СreateDom('', 'userPostbutton', 'button', mainUserInfowrap);
 userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
 
-let titlesWrap = document.createElement('div');
-titlesWrap.classList.add('titlesWrap')
-
-mainUserInfowrap.append(usersMaininfo, userEmail, userAdresinfo, userPostbutton, titlesWrap);
+let titlesWrap = СreateDom('', 'titlesWrap', 'div', mainUserInfowrap);
 
 userPostbutton.onclick = function (e) {
     e.preventDefault();
@@ -34,29 +31,23 @@ userPostbutton.onclick = function (e) {
         .then(posts => posts.json())
         .then(posts => {
             for (let post of posts) {
-                let titlesNames = document.createElement('a');
-                titlesNames.classList.add('astyle')
-                titlesNames.innerText = `${post.title}`;
+                let titlesNames = СreateDom(`${post.title}`, 'astyle', 'a', titlesWrap);
                 titlesNames.href = `post-details.html?postId=${post.id}`
-                titlesWrap.appendChild(titlesNames);
+
             }
 
         })
 }
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
-let audioBlock = document.createElement('div');
-audioBlock.classList.add('audioBlock');
-document.body.appendChild(audioBlock)
+let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
 
-let audioText = document.createElement('h5');
-audioText.innerText = 'Push to Play!';
+let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
 
-let audioblokimg = document.createElement('img');
+let audioblokimg = СreateDom('', 'audioblokimg', 'img', audioBlock);
 audioblokimg.src = 'Expert_Leadership.png'
 
-audioBlock.append(audioText, audioblokimg);
 let audiomuss = document.getElementsByTagName("audio")[0];
 
-audioBlock.onclick =  () => {audiomuss.play();}
+audioBlock.onclick = () => {audiomuss.play();}
 // ----------------------------------------|audio Block|-------------------------------------------------------

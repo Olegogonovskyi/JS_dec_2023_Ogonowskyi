@@ -39,7 +39,6 @@ body {
 .userBlock:hover {
     background: rgba(27, 26, 85, 1);
     background-image: url("Swordsman_(adventure_map).gif");
-
     background-repeat: no-repeat;
     background-position: 5% 50%;
     background-origin: border-box, padding-box;
@@ -51,7 +50,7 @@ body {
     text-align: center;
     border-radius: 10px;
     width: 10vw;
-    height: 5vw;
+    height: 10vh;
     position: fixed;
     bottom: 8vh;
     right: 3vw;
