@@ -18,7 +18,7 @@ fetch('https://dummyjson.com/carts')
         let cardBlock = СreateDom('div', 'cardBlock',  wrapCards, '');
         let mainCardinfo = СreateDom('h3', 'mainCardinfo',  cardBlock,
             `user: ${listcard.userId}, id: ${listcard.id}, total ${listcard.total}, discountedTotal: ${listcard.discountedTotal},
-            &#9755;you save ${listcard.total - listcard.discountedTotal}&#9754;, totalProducts: ${listcard.totalProducts}, totalQuantity: ${listcard.totalQuantity}`);
+            &#9755; you save ${listcard.total - listcard.discountedTotal} &#9754;, totalProducts: ${listcard.totalProducts}, totalQuantity: ${listcard.totalQuantity}`);
         let productslist = СreateDom('ul', 'productslist',  cardBlock, '');
         for (const productslistElement of listcard.products) {
             let productli = СreateDom('li', 'productli',  productslist, `${productslistElement.title}: ${productslistElement.price} $`);
