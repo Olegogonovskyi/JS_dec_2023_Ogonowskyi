@@ -21,7 +21,10 @@ fetch('https://dummyjson.com/carts')
             &#9755; you save ${listcard.total - listcard.discountedTotal} &#9754;, totalProducts: ${listcard.totalProducts}, totalQuantity: ${listcard.totalQuantity}`);
         let productslist = СreateDom('ul', 'productslist',  cardBlock, null);
         for (const productslistElement of listcard.products) {
-            let productli = СreateDom('li', 'productli',  productslist, `${productslistElement.title}: ${productslistElement.price} $`);
+            let productli = СreateDom('li', 'productli',  productslist, `${productslistElement.title}: ${productslistElement.price} $, quantity: ${productslistElement.quantity}, Total: ${productslistElement.total}, discountPercentage: ${productslistElement.discountPercentage}, discountedPrice: ${productslistElement.discountedPrice}`);
+            let imgProd = СreateDom('img', 'imgProd', productslist, null);
+            imgProd.src = `${productslistElement.thumbnail}`;
+            imgProd.style.height = '100px'
         }
     }
 
@@ -44,6 +47,11 @@ fetch('https://dummyjson.com/recipes')
             for (let i = 0; i < listrecipe.ingredients.length; i++) {
                 let ingredientslistli = СreateDom('li', 'ingredientslistli',  ingredientslist, `${listrecipe.ingredients[i]}`);
             }
+            for (let i = 0; i < listrecipe.instructions.length; i++) {
+                let howtodo = СreateDom('p', 'howtodo', ingredientslist, `${listrecipe.instructions[i]}`)
+
             }
+            };
+
         }
     );
