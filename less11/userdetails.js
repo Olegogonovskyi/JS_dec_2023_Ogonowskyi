@@ -10,7 +10,7 @@ function СreateDom(tag, classname, appendPlace, text) {
     appendPlace.appendChild(element)
     return element;
 };
-function recursobj(objkt) {
+function recursobjfetch(objkt) {
 
     function owwa(objkt) {
         for (let objktKey in objkt) {
@@ -25,4 +25,4 @@ let userid = new URL(location.href).searchParams.get('id');
 
 fetch(`https://jsonplaceholder.typicode.com/users/${userid}`)
 .then(user => user.json())
-.then(user => {recursobj(user)});
+.then(user => {recursobjfetch(user)});
