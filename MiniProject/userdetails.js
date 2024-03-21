@@ -27,17 +27,30 @@ let titlesWrap = СreateDom('', 'titlesWrap', 'div', mainUserInfowrap);
 
 userPostbutton.onclick = function (e) {
     e.preventDefault();
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${singleUser.id}`)
-        .then(posts => posts.json())
-        .then(posts => {
-            for (let post of posts) {
-                let titlesNames = СreateDom(`${post.title}`, 'astyle', 'a', titlesWrap);
-                titlesNames.href = `post-details.html?postId=${post.id}`
+    async function fetchInfo() {
+        const posts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${singleUser.id}`);
+        const postsJson = await posts.json();
+        for (let post of postsJson) {
+            let titlesNames = СreateDom(`${post.title}`, 'astyle', 'a', titlesWrap);
+            titlesNames.href = `post-details.html?postId=${post.id}`
+        }
+    }
+    fetchInfo();
+    // варіант два з then-ами я хз, коротшим код без then-ів не став
 
-            }
+    // fetch(`https://jsonplaceholder.typicode.com/posts?userId=${singleUser.id}`)
+    //     .then(posts => posts.json())
+    //     .then(posts => {
+    //         for (let post of posts) {
+    //             let titlesNames = СreateDom(`${post.title}`, 'astyle', 'a', titlesWrap);
+    //             titlesNames.href = `post-details.html?postId=${post.id}`
+    //
+    //         }
+    //
+    //     })
 
-        })
-}
+};
+
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
 let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
