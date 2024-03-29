@@ -25,9 +25,8 @@ userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
 
 let titlesWrap = СreateDom(null, 'titlesWrap', 'div', mainUserInfowrap);
 
-userPostbutton.onclick = function (e) {
-    e.preventDefault();
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${singleUser.id}`)
+userPostbutton.onclick = function () {
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${singleUser.id}`)
         .then(posts => posts.json())
         .then(posts => {
             for (let post of posts) {
@@ -37,6 +36,7 @@ userPostbutton.onclick = function (e) {
             }
 
         })
+    userPostbutton.onclick = null;
 }
 
 // ----------------------------------------|audio Block|-------------------------------------------------------
