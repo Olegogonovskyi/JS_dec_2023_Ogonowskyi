@@ -7,18 +7,29 @@ function СreateDom(text, classname, tag, appendPlace) {
     return element;
 }
 // ----------------------------------------|creator Dom|-------------------------------------------------------
+// ------------------------------------|recursion function|-------------------------------------------------------
+function recursobjfetch(objkt, placetoadd) {
+
+    function owwa(objkt) {
+        for (let objktKey in objkt) {
+            typeof objkt[objktKey] !== 'object' && objkt[objktKey] !== null ? СreateDom(`${objktKey} - ${objkt[objktKey]}`, `${objktKey}`, 'div', placetoadd) : owwa(objkt[objktKey]);
+        }
+    };
+    owwa(objkt);
+    // в залежності від задач можна і return додати, але тут його ніби не тре
+};
+// ----------------------------------------|recursion function|-------------------------------------------------------
+// ---------------------------------------------|main code|-----------------------------------------------------------
+
+
+
 let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
 
 let mainUserInfowrap = СreateDom('', 'mainUserInfowrap', 'div', document.body);
 
-let usersMaininfo = СreateDom('', 'usersMaininfo', 'h3', mainUserInfowrap);
-usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
-
-let userEmail = СreateDom(`emaill: ${singleUser.email}`, 'userEmail', 'h4', mainUserInfowrap);
-
-let userAdresinfo = СreateDom(`street: ${singleUser.address.street}, suite: ${singleUser.address.suite} in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`, 'userAdresinfo', 'p', mainUserInfowrap);
+recursobjfetch(singleUser, mainUserInfowrap)
 
 let userPostbutton = СreateDom('', 'userPostbutton', 'button', mainUserInfowrap);
 userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
@@ -38,8 +49,8 @@ userPostbutton.onclick = function (e) {
 
         })
 }
-
-// ----------------------------------------|audio Block|-------------------------------------------------------
+// ---------------------------------------------|main code|-----------------------------------------------------------
+// ---------------------------------------------|audio Block|-------------------------------------------------------
 let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
 
 let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
