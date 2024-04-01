@@ -1,4 +1,4 @@
-// ----------------------------------------|creator Dom|-------------------------------------------------------
+// ----------------------------------------|creator Dom function|-------------------------------------------------------
 function СreateDom(text, classname, tag, appendPlace) {
     element = document.createElement(`${tag}`);
     element.classList.add(`${classname}`)
@@ -6,7 +6,8 @@ function СreateDom(text, classname, tag, appendPlace) {
     appendPlace.appendChild(element)
     return element;
 }
-// ----------------------------------------|creator Dom|-------------------------------------------------------
+// ----------------------------------------|creator Dom function|-------------------------------------------------------
+// -----------------------------------------|main code|-----------------------------------------------------------
 let url = new URL(location.href);
 let postId = url.searchParams.get('postId');
 
@@ -17,7 +18,6 @@ let post = fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 
 let comments = fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
     .then(post => post.json());
-
 Promise.all([post, comments])
     .then(resolt => {
         let [post, comments] = resolt;
@@ -33,13 +33,10 @@ Promise.all([post, comments])
         for (let comment of comments) {
             let commenttext = СreateDom(null, 'mainPostblock', 'p', commentsblock);
             commenttext.innerHTML = `<span>${comment.email} - ${comment.name}</span>:<br> ${comment.body}`
-
         }
-
-
     })
-
-// ----------------------------------------|audio Block|-------------------------------------------------------
+// ---------------------------------------------|main code|-----------------------------------------------------------
+// --------------------------------------------|audio Block|-------------------------------------------------------
 let audioBlock = СreateDom('', 'audioBlock', 'div', document.body);
 
 let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);

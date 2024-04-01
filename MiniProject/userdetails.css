@@ -16,7 +16,7 @@ body {
     background-attachment: fixed;
 }
 button {
-
+    margin-top: 2vh;
     color: white;
     font-size: 20px;
     font-family: "MedievalSharp", cursive;
@@ -38,6 +38,7 @@ button {
         color: white;
         border-radius: 10px;
         text-align: center;
+        font-size: 15px;
 
     }
 }

@@ -1,4 +1,4 @@
-// ----------------------------------------|creator Dom|-------------------------------------------------------
+// ----------------------------------------|creator Dom function|-------------------------------------------------------
 function СreateDom(text, classname, tag, appendPlace) {
     element = document.createElement(`${tag}`);
     element.classList.add(`${classname}`)
@@ -6,19 +6,25 @@ function СreateDom(text, classname, tag, appendPlace) {
     appendPlace.appendChild(element)
     return element;
 }
-// ----------------------------------------|creator Dom|-------------------------------------------------------
+// ----------------------------------------|creator Dom function|-------------------------------------------------------
+// -----------------------------------------|recursion function|-------------------------------------------------------
+function recursobjfetch(objkt, placetoadd) {
+    function domcreatorinReduce(objkt) {
+        for (let objktKey in objkt) {
+            typeof objkt[objktKey] !== 'object' && objkt[objktKey] !== null ? СreateDom(`${objktKey} - ${objkt[objktKey]}`, `${objktKey}`, 'div', placetoadd) : domcreatorinReduce(objkt[objktKey]);
+        }
+    };
+    domcreatorinReduce(objkt);
+};
+// ----------------------------------------|recursion function|-------------------------------------------------------
+// ---------------------------------------------|main code|-----------------------------------------------------------
 let url = new URL(location.href);
 
 let singleUser = JSON.parse(url.searchParams.get('user'));
 
 let mainUserInfowrap = СreateDom(null, 'mainUserInfowrap', 'div', document.body);
 
-let usersMaininfo = СreateDom(null, 'usersMaininfo', 'h3', mainUserInfowrap);
-usersMaininfo.innerHTML = `&#9814; ${singleUser.name}, id: ${singleUser.id} (username: ${singleUser.username})`
-
-let userEmail = СreateDom(`emaill: ${singleUser.email}`, 'userEmail', 'h4', mainUserInfowrap);
-
-let userAdresinfo = СreateDom(`street: ${singleUser.address.street}, suite: ${singleUser.address.suite} in town:${singleUser.address.city}, zipcode: ${singleUser.address.zipcode}; location: ${singleUser.address.geo.lat} & ${singleUser.address.geo.lng}`, 'userAdresinfo', 'p', mainUserInfowrap);
+recursobjfetch(singleUser, mainUserInfowrap)
 
 let userPostbutton = СreateDom(null, 'userPostbutton', 'button', mainUserInfowrap);
 userPostbutton.innerHTML = `&#9884; post of current user &#9884;`;
@@ -32,14 +38,12 @@ userPostbutton.onclick = function () {
             for (let post of posts) {
                 let titlesNames = СreateDom(`${post.title}`, 'astyle', 'a', titlesWrap);
                 titlesNames.href = `post-details.html?postId=${post.id}`
-
             }
-
         })
     userPostbutton.onclick = null;
 }
-
-// ----------------------------------------|audio Block|-------------------------------------------------------
+// ---------------------------------------------|main code|-----------------------------------------------------------
+// --------------------------------------------|audio Block|-------------------------------------------------------
 let audioBlock = СreateDom(null, 'audioBlock', 'div', document.body);
 
 let audioText = СreateDom('Push to Play!', 'audiotext', 'h5', audioBlock);
@@ -50,4 +54,4 @@ audioblokimg.src = 'Expert_Leadership.png'
 let audiomuss = document.getElementsByTagName("audio")[0];
 
 audioBlock.onclick = () => {audiomuss.play();}
-// ----------------------------------------|audio Block|-------------------------------------------------------
+// --------------------------------------------|audio Block|-------------------------------------------------------
